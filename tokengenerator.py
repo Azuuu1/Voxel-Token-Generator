@@ -3,15 +3,16 @@ import time
 import os
 from colorama import Fore, init
 
-
+import datetime
 init()
+
 LOGER = """
 ██╗   ██╗ ██████╗ ██╗  ██╗███████╗██╗     
 ██║   ██║██╔═══██╗╚██╗██╔╝██╔════╝██║     
 ██║   ██║██║   ██║ ╚███╔╝ █████╗  ██║     
 ╚██╗ ██╔╝██║   ██║ ██╔██╗ ██╔══╝  ██║     
  ╚████╔╝ ╚██████╔╝██╔╝ ██╗███████╗███████╗
-  ╚═══╝   ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝
+  ╚═══╝   ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝ 1.1
 """
 
 if os.path.exists("tokens.txt"):
@@ -36,7 +37,7 @@ else:
             os.system("cls")  
     time.sleep(1)  
 table1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
+os.system("cls")
 print(Fore.LIGHTRED_EX+ LOGER + Fore.RESET)
 Seks = int(input("How many tokens?: "))
 print(Fore.GREEN +"Generating tokens for: " + id)
@@ -76,8 +77,9 @@ try:
     
     with open("tokens.txt", "a") as file:
         for _ in range(Seks): 
+            date = datetime.datetime.now()
             x = generatetoken()
-            print(Fore.LIGHTMAGENTA_EX + "[+] " + x + Fore.RESET )  
+            print(Fore.LIGHTMAGENTA_EX, str(date),  "[+]" , x , Fore.RESET )  
             file.write(x + "\n")
 
     os.system("cls")
